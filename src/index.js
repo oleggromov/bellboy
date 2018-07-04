@@ -1,14 +1,14 @@
 const Bellboy = require('./bellboy')
-const args = require('./plugins/args')
-const file = require('./plugins/file')
-const lines = require('./plugins/lines')
 
 module.exports = function bellboyDefault () {
   const bellboy = new Bellboy()
 
-  bellboy.registerPlugin('args', args)
-  bellboy.registerPlugin('file', file)
-  bellboy.registerPlugin('lines', lines)
+  bellboy.registerPlugin('args', require('./plugins/args'))
+  bellboy.registerPlugin('env', require('./plugins/env'))
+  bellboy.registerPlugin('file', require('./plugins/file'))
+  bellboy.registerPlugin('lines', require('./plugins/lines'))
+  bellboy.registerPlugin('find', require('./plugins/find'))
+  bellboy.registerPlugin('html', require('./plugins/html'))
 
   return bellboy
 }
