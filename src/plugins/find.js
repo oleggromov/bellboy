@@ -5,7 +5,6 @@ module.exports = function find (lines, terms) {
         return true
       }
     }
-
     return false
   })
 }

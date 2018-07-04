@@ -9,6 +9,7 @@ module.exports = function bellboyDefault () {
   bellboy.registerPlugin('lines', require('./plugins/lines'))
   bellboy.registerPlugin('find', require('./plugins/find'))
   bellboy.registerPlugin('html', require('./plugins/html'))
+  bellboy.registerPlugin('save', require('./plugins/save'))
 
   return bellboy
 }
