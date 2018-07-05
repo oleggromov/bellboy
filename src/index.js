@@ -3,13 +3,14 @@ const Bellboy = require('./bellboy')
 module.exports = function bellboyDefault () {
   const bellboy = new Bellboy()
 
-  bellboy.registerPlugin('args', require('./plugins/args'))
-  bellboy.registerPlugin('env', require('./plugins/env'))
-  bellboy.registerPlugin('file', require('./plugins/file'))
-  bellboy.registerPlugin('lines', require('./plugins/lines'))
-  bellboy.registerPlugin('find', require('./plugins/find'))
-  bellboy.registerPlugin('html', require('./plugins/html'))
-  bellboy.registerPlugin('save', require('./plugins/save'))
+  bellboy.mix('args', require('./plugins/args'))
+  bellboy.mix('env', require('./plugins/env'))
+  bellboy.mix('file', require('./plugins/file'))
+  bellboy.mix('lines', require('./plugins/lines'))
+  bellboy.mix('find', require('./plugins/find'))
+  bellboy.mix('html', require('./plugins/html'))
+  // bellboy.mix('save', require('./plugins/save'))
+  bellboy.mix('url', require('./plugins/url'))
 
   return bellboy
 }
