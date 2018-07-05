@@ -26,24 +26,14 @@ class Bellboy {
     this._next()
   }
 
-  _next () {
+  async _next () {
     const next = this._queue.shift()
     if (next) {
       try {
-        this._last = next(this._last)
+        this._last = await next(this._last)
+        this._next()
       } catch (err) {
         this._catch(err)
-      }
-
-      if (this._last instanceof Promise) {
-        this._last
-          .then(result => {
-            this._last = result
-            this._next()
-          })
-          .catch(err => this._catch(err))
-      } else {
-        this._next()
       }
     } else {
       this._then(this._last)
