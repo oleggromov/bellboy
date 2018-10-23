@@ -1,7 +1,13 @@
 const Bellboy = require('./bellboy')
+const core = require('./core')
 
 module.exports = function bellboyDefault () {
   const bellboy = new Bellboy()
+
+  bellboy.mix('take', core.take)
+  bellboy.mix('map', core.map)
+  bellboy.mix('filter', core.filter)
+  bellboy.mix('reduce', core.reduce)
 
   bellboy.mix('args', require('./plugins/args'))
   bellboy.mix('env', require('./plugins/env'))

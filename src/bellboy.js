@@ -32,7 +32,7 @@ class Bellboy {
       if (next) {
         // It might be quite confusing that it executes
         // sync functions asynchronously
-        this._last = await next(_last)
+        this._last = await next(this._last)
         this._next()
       } else {
         this._then(this._last)
