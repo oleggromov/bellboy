@@ -28,15 +28,17 @@ class Bellboy {
 
   async _next () {
     const next = this._queue.shift()
-    if (next) {
-      try {
-        this._last = await next(this._last)
+    try {
+      if (next) {
+        // It might be quite confusing that it executes
+        // sync functions asynchronously
+        this._last = await next(_last)
         this._next()
-      } catch (err) {
-        this._catch(err)
+      } else {
+        this._then(this._last)
       }
-    } else {
-      this._then(this._last)
+    } catch (err) {
+      this._catch(err)
     }
   }
 }
