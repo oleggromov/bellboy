@@ -27,22 +27,6 @@ describe('Bellboy:', () => {
     })
   })
 
-  describe('then', () => {
-    it('is available', () => {
-      expect(typeof bb.then).toEqual('function')
-    })
-
-    it('returns this', () => {
-      expect(bb.then(() => {})).toBe(bb)
-    })
-
-    it('enables then-ed function to be properly called', () => {
-      const mock = jest.fn()
-      bb.then(mock).please()
-      expect(mock).toHaveBeenCalledTimes(1)
-    })
-  })
-
   describe('catch', () => {
     it('is available', () => {
       expect(typeof bb.catch).toEqual('function')
@@ -56,13 +40,6 @@ describe('Bellboy:', () => {
       const mock = jest.fn()
       bb.mix('test', () => 1 + a)
       bb.test().catch(mock).please()
-      expect(mock).toHaveBeenCalledTimes(1)
-      expect(mock).toHaveBeenLastCalledWith(ReferenceError('a is not defined'))
-    })
-
-    it('catch gets a then exception', () => {
-      const mock = jest.fn()
-      bb.then(() => 1 + a).catch(mock).please()
       expect(mock).toHaveBeenCalledTimes(1)
       expect(mock).toHaveBeenLastCalledWith(ReferenceError('a is not defined'))
     })
