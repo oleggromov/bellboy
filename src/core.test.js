@@ -22,11 +22,11 @@ describe('map, filter, reduce plugins', () => {
 
   describe('reduce', () => {
     it('works with non-array', () => {
-      expect(reduce((acc, item) => acc + item, 1, '0')).toEqual('01')
+      expect(reduce((acc, item) => acc + item, '0', 1)).toEqual('01')
     })
 
     it('reduces an array', () => {
-      expect(reduce((acc, item) => acc + item, [1, 2, 3], 0)).toEqual(6)
+      expect(reduce((acc, item) => acc + item, 0, [1, 2, 3])).toEqual(6)
     })
   })
 })

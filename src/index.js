@@ -6,6 +6,7 @@ module.exports = function bellboyDefault () {
 
   bellboy.mix('take', core.take)
   bellboy.mix('map', core.map)
+  bellboy.mix('touch', core.touch)
   bellboy.mix('filter', core.filter)
   bellboy.mix('reduce', core.reduce)
 
