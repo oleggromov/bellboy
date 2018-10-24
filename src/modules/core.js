@@ -23,4 +23,8 @@ function take (value) {
   return value
 }
 
-module.exports = { take, map, touch, filter, reduce }
+function slice (begin, end, value) {
+  return _convertToArray(value).slice(begin, end)
+}
+
+module.exports = { take, map, touch, filter, reduce, slice }
